@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeApp(),
     );
   }
@@ -63,7 +63,7 @@ class _HomeAppState extends State<HomeApp> {
     return Scaffold(
       backgroundColor: AppColor.primaryColor,
       appBar: AppBar(
-        title: Text("Hangman"),
+        title: const Text("Hangman"),
         elevation: 0,
         centerTitle: true,
         backgroundColor: AppColor.primaryColor,
@@ -111,7 +111,7 @@ class _HomeAppState extends State<HomeApp> {
               crossAxisCount: 7,
               mainAxisSpacing: 8.0,
               crossAxisSpacing: 8.0,
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               children: alphabets.map((e) {
                 return RawMaterialButton(
                   onPressed: Game.selectedChar.contains(e)
@@ -119,6 +119,7 @@ class _HomeAppState extends State<HomeApp> {
                       : () {
                           setState(() {
                             Game.selectedChar.add(e);
+                            // ignore: avoid_print
                             print(Game.selectedChar);
                             if (!word.split('').contains(e.toUpperCase())) {
                               Game.tries++;
@@ -130,7 +131,7 @@ class _HomeAppState extends State<HomeApp> {
                   ),
                   child: Text(
                     e,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
